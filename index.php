@@ -1,7 +1,11 @@
 ﻿<!DOCTYPE html> 
-<html> 
+<html>	
     <head> 
         <title>Areas for an interview</title> 
+	<style>
+	header { font-size: 190% }
+	</style>	    
+	    
     </head> 
     <body> 
         <article> 
