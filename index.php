@@ -1,62 +1,88 @@
-﻿<!DOCTYPE html> 
+<?php
+session_start();
+?>
+
+<!DOCTYPE html> 
 <html>	
     <head> 
         <title>Areas for an interview</title> 
 	<style>
-	header { font-size: 190% }
+	header { font-size: 120% }
 	</style>	    
 	    
     </head> 
     <body> 
         <article> 
             <header> 
+
+<div>
+  <h5>Areas for an interview - all displayed areas will be deleted for unique questions</h5>
 <?
-			echo "Question Areas for an interview.<br><br><br>";
+			
+            if (!isset($_SESSION['inhalte'])) {
 
-			$inhalte[].="art";
-			$inhalte[].="economy";
-			$inhalte[].="politics";
-			$inhalte[].="social/life/Society";
-			$inhalte[].="science";
-			$inhalte[].="work";
-			$inhalte[].="sport";
-			$inhalte[].="(your current town/area)";
-			$inhalte[].="technic";
-			$inhalte[].="dinner";
-			$inhalte[].="music";
-			$inhalte[].="climate";
-			$inhalte[].="minority";
+			$_SESSION['inhalte'][].="art";
+			$_SESSION['inhalte'][].="economy";
+			$_SESSION['inhalte'][].="politics";
+			$_SESSION['inhalte'][].="get more social";
+			$_SESSION['inhalte'][].="science";
+			$_SESSION['inhalte'][].="work";
+			$_SESSION['inhalte'][].="sport";
+			$_SESSION['inhalte'][].="(your current town/area)";
+			$_SESSION['inhalte'][].="technic";
+			$_SESSION['inhalte'][].="dinner";
+			$_SESSION['inhalte'][].="music";
+			$_SESSION['inhalte'][].="climate";
+			$_SESSION['inhalte'][].="plastic";
+			$_SESSION['inhalte'][].="LGBTIQ / queer";
+			$_SESSION['inhalte'][].="minority";			
 
 			
-			//continents
-			$inhalte[].="asia";
-			$inhalte[].="africa";
-			$inhalte[].="south-america";
-			$inhalte[].="north-america";
-			$inhalte[].="australia";
-			$inhalte[].="europe";
+            /*            
+            //continents
+			$_SESSION['inhalte'][].="asia";
+			$_SESSION['inhalte'][].="africa";
+			$_SESSION['inhalte'][].="south-america";
+			$_SESSION['inhalte'][].="north-america";
+			$_SESSION['inhalte'][].="australia";
+			$_SESSION['inhalte'][].="europe";
+            */
 
-			//freud
-			$inhalte[].="daily life";
-			$inhalte[].="love";
-			$inhalte[].="war";
-			$inhalte[].="death";
-			$inhalte[].="(un)aware";
-			$inhalte[].="normality and neurose";
-			$inhalte[].="literature";
-			$inhalte[].="legend";
-			$inhalte[].="fairytale";
-			$inhalte[].="religion";
-			$inhalte[].="culture";
-			
+			//parts of freud
+			$_SESSION['inhalte'][].="daily life";
+			$_SESSION['inhalte'][].="love";
+			$_SESSION['inhalte'][].="war";
+			$_SESSION['inhalte'][].="death";
+			$_SESSION['inhalte'][].="literature";
+			$_SESSION['inhalte'][].="fairytale";
+			$_SESSION['inhalte'][].="religion";
+			$_SESSION['inhalte'][].="culture";
+            
+}
+            
+			$ende=count($_SESSION['inhalte'])-1;
 
-			$ende=count($inhalte)-1;
+            echo "<br>Currently " . count($_SESSION['inhalte']) . " elements.<br><br>";
 
-			echo $inhalte[rand(0, $ende)];
+            
+            $aktuell=rand(0, $ende);
+            
+            echo "<h2>";
+			echo $_SESSION['inhalte'][$aktuell]."<br><br>";
+            echo '</h2>';
+
+            unset( $_SESSION['inhalte'][$aktuell] );
+            $_SESSION['inhalte'] = array_values($_SESSION['inhalte']);
 
 			?>
+
+<br>
+
+  
+</div>
             </header> 
         </article> 
+<input style="height:100px; width:100px" onClick="window.location.reload();" type="button" value="reload">
     </body> 
 </html> 
 
