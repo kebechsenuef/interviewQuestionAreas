@@ -4,7 +4,7 @@ interviewQuestionAreas is a simple script to support you when you plan an interv
 
 ### Example
 
-Try it: https://su27.ws/p/fragewelt 
+Try it: https://aa27.de/p/fragewelt 
 
 
 ### Tech
